@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(foreach \\($p in 9007,9008,9123,9124,9125\\) { try { Get-NetTCPConnection -LocalPort $p -State Listen -ErrorAction Stop | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue; \"killed $_ on $p\" } } catch { \"free $p\" } })"
+    ]
+  }
+}

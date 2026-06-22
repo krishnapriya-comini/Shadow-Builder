@@ -1,0 +1,14 @@
+{
+  "_comment": "Reference snippet for the HOST manifest entry for Shadow Builder. Copy the relevant fields into the host's challenge manifest after uploading dist-mfe/main.js to the CDN. Update `bundleUrl` to the real CDN URL.",
+  "challengeId": "shadow-builder",
+  "title": "Shadow Builder",
+  "bundleUrl": "https://YOUR_CDN/mfe/shadow-builder/main.js",
+  "assetBase": "/mfe/shadow-builder",
+  "exports": ["bootstrap", "mount", "unmount"],
+  "progressConfig": {
+    "type": "levels",
+    "totalLevels": 10,
+    "storageKey": "sb_high_score",
+    "storageFormat": "levelsCompleted"
+  }
+}
