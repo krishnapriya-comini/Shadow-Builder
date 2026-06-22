@@ -1,0 +1,16 @@
+{
+  "challengeId": "shadow-builder",
+  "challengeTitle": "Shadow Builder",
+  "componentName": "ShadowBuilder",
+  "storagePrefix": "sb_",
+  "learningGoal": "spatial reasoning — read a 2D shadow/projection and reconstruct it as a 3D block structure",
+  "primaryConcept": "spatial visualization",
+  "secondaryConcept": "mental rotation",
+  "context": "a floating island where you stack blocks to match a shadow",
+  "itemName": "block",
+  "itemNamePlural": "blocks",
+  "taskName": "shape",
+  "taskNamePlural": "shapes",
+  "gameTool": "tap-to-stack blocks",
+  "audioBaseUrl": "https://storage.googleapis.com/ripple-assets-audio/shadow-builder"
+}

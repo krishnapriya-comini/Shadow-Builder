@@ -1,0 +1,405 @@
+/*
+ * Tailwind CSS v4 for Shadow Builder MFE
+ * 
+ * Using scoped approach to avoid CSS conflicts with parent app:
+ * 1. Import only theme and utilities, NOT preflight/base
+ * 2. Scope all styles to #shadow-builder-root
+ */
+
+/* Import Tailwind without preflight to avoid global resets */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+/* Scan project for classes */
+@source "./**/*.tsx";
+@source "./**/*.ts";
+
+/* Custom theme variables */
+:root {
+  --color-primary-orange: #ED8849;
+  --color-dark-orange: #CF6F33;
+  --color-golden-yellow: #FDB10E;
+  --color-cream: #FFECDA;
+  --color-light-gray: #EDF2F2;
+  --color-blue-light: #89CBF5;
+  --color-blue-dark: #245A7D;
+  --color-primary-dark: #000D26;
+  --color-white: #FFFFFF;
+}
+
+/* MFE-specific base resets with higher specificity */
+@layer base {
+  #shadow-builder-root {
+    font-family: 'Gabarito', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-primary-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  #shadow-builder-root *,
+  #shadow-builder-root *::before,
+  #shadow-builder-root *::after {
+    box-sizing: border-box;
+  }
+}
+
+/* Scrollbar utilities */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * SCOPED UTILITIES for shadow-builder
+ * Using #shadow-builder-root prefix for higher specificity
+ */
+
+/* Display */
+#shadow-builder-root .flex { display: flex !important; }
+#shadow-builder-root .inline-flex { display: inline-flex !important; }
+#shadow-builder-root .hidden { display: none !important; }
+#shadow-builder-root .block { display: block !important; }
+#shadow-builder-root .grid { display: grid !important; }
+
+/* Flex direction */
+#shadow-builder-root .flex-col { flex-direction: column !important; }
+#shadow-builder-root .flex-row { flex-direction: row !important; }
+
+/* Flex properties */
+#shadow-builder-root .flex-1 { flex: 1 1 0% !important; }
+#shadow-builder-root .flex-shrink-0 { flex-shrink: 0 !important; }
+#shadow-builder-root .flex-wrap { flex-wrap: wrap !important; }
+#shadow-builder-root .shrink-0 { flex-shrink: 0 !important; }
+
+/* Alignment */
+#shadow-builder-root .items-center { align-items: center !important; }
+#shadow-builder-root .items-start { align-items: flex-start !important; }
+#shadow-builder-root .items-end { align-items: flex-end !important; }
+#shadow-builder-root .justify-center { justify-content: center !important; }
+#shadow-builder-root .justify-between { justify-content: space-between !important; }
+#shadow-builder-root .justify-start { justify-content: flex-start !important; }
+#shadow-builder-root .justify-end { justify-content: flex-end !important; }
+#shadow-builder-root .justify-around { justify-content: space-around !important; }
+#shadow-builder-root .justify-evenly { justify-content: space-evenly !important; }
+
+/* Position */
+#shadow-builder-root .relative { position: relative !important; }
+#shadow-builder-root .absolute { position: absolute !important; }
+#shadow-builder-root .fixed { position: fixed !important; }
+#shadow-builder-root .inset-0 { inset: 0 !important; }
+#shadow-builder-root .top-0 { top: 0 !important; }
+#shadow-builder-root .left-0 { left: 0 !important; }
+#shadow-builder-root .right-0 { right: 0 !important; }
+#shadow-builder-root .bottom-0 { bottom: 0 !important; }
+
+/* Width */
+#shadow-builder-root .w-full { width: 100% !important; }
+#shadow-builder-root .w-screen { width: 100vw !important; }
+#shadow-builder-root .w-auto { width: auto !important; }
+
+/* Height */
+#shadow-builder-root .h-full { height: 100% !important; }
+#shadow-builder-root .h-screen { height: 100vh !important; }
+#shadow-builder-root .h-auto { height: auto !important; }
+
+/* Min/Max dimensions */
+#shadow-builder-root .min-h-screen { min-height: 100vh !important; }
+#shadow-builder-root .max-w-full { max-width: 100% !important; }
+
+/* Background colors */
+#shadow-builder-root .bg-primary-orange { background-color: var(--color-primary-orange) !important; }
+#shadow-builder-root .bg-dark-orange { background-color: var(--color-dark-orange) !important; }
+#shadow-builder-root .bg-golden-yellow { background-color: var(--color-golden-yellow) !important; }
+#shadow-builder-root .bg-cream { background-color: var(--color-cream) !important; }
+#shadow-builder-root .bg-light-gray { background-color: var(--color-light-gray) !important; }
+#shadow-builder-root .bg-blue-light { background-color: var(--color-blue-light) !important; }
+#shadow-builder-root .bg-white { background-color: #fff !important; }
+#shadow-builder-root .bg-black { background-color: #000 !important; }
+#shadow-builder-root .bg-transparent { background-color: transparent !important; }
+
+/* Text colors */
+#shadow-builder-root .text-white { color: #fff !important; }
+#shadow-builder-root .text-black { color: #000 !important; }
+#shadow-builder-root .text-primary-dark { color: var(--color-primary-dark) !important; }
+#shadow-builder-root .text-blue-dark { color: var(--color-blue-dark) !important; }
+#shadow-builder-root .text-cream { color: var(--color-cream) !important; }
+
+/* Font family */
+#shadow-builder-root .font-gabarito { font-family: 'Gabarito', sans-serif !important; }
+
+/* Font weights */
+#shadow-builder-root .font-normal { font-weight: 400 !important; }
+#shadow-builder-root .font-medium { font-weight: 500 !important; }
+#shadow-builder-root .font-semibold { font-weight: 600 !important; }
+#shadow-builder-root .font-bold { font-weight: 700 !important; }
+#shadow-builder-root .font-extrabold { font-weight: 800 !important; }
+#shadow-builder-root .font-black { font-weight: 900 !important; }
+
+/* Font sizes */
+#shadow-builder-root .text-xs { font-size: 0.75rem !important; line-height: 1rem !important; }
+#shadow-builder-root .text-sm { font-size: 0.875rem !important; line-height: 1.25rem !important; }
+#shadow-builder-root .text-base { font-size: 1rem !important; line-height: 1.5rem !important; }
+#shadow-builder-root .text-lg { font-size: 1.125rem !important; line-height: 1.75rem !important; }
+#shadow-builder-root .text-xl { font-size: 1.25rem !important; line-height: 1.75rem !important; }
+#shadow-builder-root .text-2xl { font-size: 1.5rem !important; line-height: 2rem !important; }
+#shadow-builder-root .text-3xl { font-size: 1.875rem !important; line-height: 2.25rem !important; }
+#shadow-builder-root .text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
+
+/* Text alignment */
+#shadow-builder-root .text-center { text-align: center !important; }
+#shadow-builder-root .text-left { text-align: left !important; }
+#shadow-builder-root .text-right { text-align: right !important; }
+
+/* Overflow */
+#shadow-builder-root .overflow-hidden { overflow: hidden !important; }
+#shadow-builder-root .overflow-visible { overflow: visible !important; }
+#shadow-builder-root .overflow-auto { overflow: auto !important; }
+
+/* Z-index */
+#shadow-builder-root .z-0 { z-index: 0 !important; }
+#shadow-builder-root .z-10 { z-index: 10 !important; }
+#shadow-builder-root .z-20 { z-index: 20 !important; }
+#shadow-builder-root .z-30 { z-index: 30 !important; }
+#shadow-builder-root .z-40 { z-index: 40 !important; }
+#shadow-builder-root .z-50 { z-index: 50 !important; }
+
+/* Pointer events */
+#shadow-builder-root .pointer-events-none { pointer-events: none !important; }
+#shadow-builder-root .pointer-events-auto { pointer-events: auto !important; }
+
+/* Select */
+#shadow-builder-root .select-none { user-select: none !important; }
+
+/* Cursor */
+#shadow-builder-root .cursor-default { cursor: default !important; }
+#shadow-builder-root .cursor-pointer { cursor: pointer !important; }
+#shadow-builder-root .cursor-grab { cursor: grab !important; }
+#shadow-builder-root .cursor-grabbing { cursor: grabbing !important; }
+
+/* Border radius */
+#shadow-builder-root .rounded-none { border-radius: 0 !important; }
+#shadow-builder-root .rounded-sm { border-radius: 0.125rem !important; }
+#shadow-builder-root .rounded { border-radius: 0.25rem !important; }
+#shadow-builder-root .rounded-md { border-radius: 0.375rem !important; }
+#shadow-builder-root .rounded-lg { border-radius: 0.5rem !important; }
+#shadow-builder-root .rounded-xl { border-radius: 0.75rem !important; }
+#shadow-builder-root .rounded-2xl { border-radius: 1rem !important; }
+#shadow-builder-root .rounded-3xl { border-radius: 1.5rem !important; }
+#shadow-builder-root .rounded-full { border-radius: 9999px !important; }
+
+/* Padding */
+#shadow-builder-root .p-0 { padding: 0 !important; }
+#shadow-builder-root .p-1 { padding: 0.25rem !important; }
+#shadow-builder-root .p-2 { padding: 0.5rem !important; }
+#shadow-builder-root .p-3 { padding: 0.75rem !important; }
+#shadow-builder-root .p-4 { padding: 1rem !important; }
+#shadow-builder-root .p-5 { padding: 1.25rem !important; }
+#shadow-builder-root .p-6 { padding: 1.5rem !important; }
+#shadow-builder-root .px-2 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+#shadow-builder-root .px-3 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+#shadow-builder-root .px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+#shadow-builder-root .py-2 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+#shadow-builder-root .py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+#shadow-builder-root .py-4 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+
+/* Margin */
+#shadow-builder-root .m-0 { margin: 0 !important; }
+#shadow-builder-root .m-1 { margin: 0.25rem !important; }
+#shadow-builder-root .m-2 { margin: 0.5rem !important; }
+#shadow-builder-root .m-auto { margin: auto !important; }
+#shadow-builder-root .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+#shadow-builder-root .my-2 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+#shadow-builder-root .mt-2 { margin-top: 0.5rem !important; }
+#shadow-builder-root .mt-4 { margin-top: 1rem !important; }
+#shadow-builder-root .mb-2 { margin-bottom: 0.5rem !important; }
+#shadow-builder-root .mb-4 { margin-bottom: 1rem !important; }
+
+/* Gap */
+#shadow-builder-root .gap-1 { gap: 0.25rem !important; }
+#shadow-builder-root .gap-2 { gap: 0.5rem !important; }
+#shadow-builder-root .gap-3 { gap: 0.75rem !important; }
+#shadow-builder-root .gap-4 { gap: 1rem !important; }
+#shadow-builder-root .gap-6 { gap: 1.5rem !important; }
+#shadow-builder-root .gap-8 { gap: 2rem !important; }
+
+/* Shadow */
+#shadow-builder-root .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important; }
+#shadow-builder-root .shadow { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important; }
+#shadow-builder-root .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important; }
+#shadow-builder-root .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important; }
+#shadow-builder-root .shadow-xl { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !important; }
+
+/* Transition */
+#shadow-builder-root .transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter !important; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; transition-duration: 150ms !important; }
+#shadow-builder-root .transition-all { transition-property: all !important; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; transition-duration: 150ms !important; }
+#shadow-builder-root .transition-transform { transition-property: transform !important; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; transition-duration: 150ms !important; }
+#shadow-builder-root .duration-200 { transition-duration: 200ms !important; }
+#shadow-builder-root .duration-300 { transition-duration: 300ms !important; }
+
+/* Transform */
+#shadow-builder-root .scale-95 { transform: scale(0.95) !important; }
+#shadow-builder-root .scale-100 { transform: scale(1) !important; }
+#shadow-builder-root .scale-105 { transform: scale(1.05) !important; }
+#shadow-builder-root .scale-110 { transform: scale(1.1) !important; }
+
+/* Hover states */
+#shadow-builder-root .hover\:scale-105:hover { transform: scale(1.05) !important; }
+#shadow-builder-root .hover\:scale-110:hover { transform: scale(1.1) !important; }
+#shadow-builder-root .hover\:bg-opacity-80:hover { background-opacity: 0.8 !important; }
+
+/* Active states */
+#shadow-builder-root .active\:scale-95:active { transform: scale(0.95) !important; }
+
+/* Aspect ratio */
+#shadow-builder-root .aspect-square { aspect-ratio: 1 / 1 !important; }
+#shadow-builder-root .aspect-video { aspect-ratio: 16 / 9 !important; }
+
+/* Object fit */
+#shadow-builder-root .object-contain { object-fit: contain !important; }
+#shadow-builder-root .object-cover { object-fit: cover !important; }
+
+/* Opacity */
+#shadow-builder-root .opacity-0 { opacity: 0 !important; }
+#shadow-builder-root .opacity-50 { opacity: 0.5 !important; }
+#shadow-builder-root .opacity-75 { opacity: 0.75 !important; }
+#shadow-builder-root .opacity-100 { opacity: 1 !important; }
+
+/* Custom game-specific styles */
+#shadow-builder-root .ingredient-container {
+  background-color: var(--color-blue-light);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#shadow-builder-root .ingredient-container:hover {
+  transform: scale(1.05);
+}
+
+#shadow-builder-root .weight-display {
+  font-family: 'Gabarito', sans-serif;
+  color: var(--color-blue-dark);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+#shadow-builder-root .game-counter {
+  background-color: var(--color-primary-orange);
+  border-top: 6px solid var(--color-dark-orange);
+}
+
+#shadow-builder-root .counter-divider {
+  width: 0;
+  border-left: 6px solid var(--color-dark-orange);
+}
+
+#shadow-builder-root .grid-background {
+  background-image: 
+    linear-gradient(var(--color-cream) 2px, transparent 2px),
+    linear-gradient(90deg, var(--color-cream) 2px, transparent 2px);
+  background-size: 51px 43px;
+  background-color: var(--color-primary-orange);
+}
+
+#shadow-builder-root .action-button {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 0px 0px rgba(228, 228, 228, 1);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+#shadow-builder-root .action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 0px 0px rgba(228, 228, 228, 1);
+}
+
+#shadow-builder-root .action-button:active {
+  transform: translateY(2px);
+  box-shadow: 0px 2px 0px 0px rgba(228, 228, 228, 1);
+}
+
+/* Animation keyframes */
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+#shadow-builder-root .animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+#shadow-builder-root .animate-pulse-scale {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+
+#shadow-builder-root .animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+#shadow-builder-root .animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Draggable ingredient styles */
+#shadow-builder-root .draggable-ingredient {
+  cursor: grab;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#shadow-builder-root .draggable-ingredient:active {
+  cursor: grabbing;
+}
+
+#shadow-builder-root .draggable-ingredient.dragging {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+/* Drop zone styles */
+#shadow-builder-root .drop-zone {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#shadow-builder-root .drop-zone.active {
+  background-color: rgba(253, 177, 14, 0.2);
+  border: 2px dashed var(--color-golden-yellow);
+}
+
+#shadow-builder-root .drop-zone.hover {
+  background-color: rgba(253, 177, 14, 0.4);
+  border-color: var(--color-golden-yellow);
+}
